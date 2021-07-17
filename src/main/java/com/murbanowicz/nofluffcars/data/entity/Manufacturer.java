@@ -14,15 +14,6 @@ public class Manufacturer {
     @Column(name = "name")
     private String name;
 
-
-    public Manufacturer() {
-    }
-
-    public Manufacturer(Long ID, String name) {
-        this.ID = ID;
-        this.name = name;
-    }
-
     public Long getID() {
         return ID;
     }
