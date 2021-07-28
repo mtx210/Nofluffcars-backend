@@ -2,23 +2,12 @@ package com.murbanowicz.nofluffcars.dto;
 
 public class ManufacturerDto {
 
-    private Long ID;
     private String name;
+    private String country;
 
-    public ManufacturerDto() {
-    }
-
-    public ManufacturerDto(Long ID, String name) {
-        this.ID = ID;
+    public ManufacturerDto(String name, String country) {
         this.name = name;
-    }
-
-    public Long getID() {
-        return ID;
-    }
-
-    public void setID(Long ID) {
-        this.ID = ID;
+        this.country = country;
     }
 
     public String getName() {
@@ -27,5 +16,13 @@ public class ManufacturerDto {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }

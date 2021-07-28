@@ -3,16 +3,13 @@ package com.murbanowicz.nofluffcars.data.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "manufacturer")
-public class Manufacturer {
+@Table(name = "country")
+public class Country {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
-
-    @Column(name = "IDcountry")
-    private Long idCountry;
 
     @Column(name = "name")
     private String name;
@@ -21,16 +18,8 @@ public class Manufacturer {
         return id;
     }
 
-    public void setId(Long ID) {
-        this.id = ID;
-    }
-
-    public Long getIdCountry() {
-        return idCountry;
-    }
-
-    public void setIdCountry(Long ID_country) {
-        this.idCountry = ID_country;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
