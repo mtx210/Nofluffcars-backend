@@ -13,7 +13,7 @@ docker network create nofluffcars-network
 docker image build -t nofluffcars_db_image .
 docker container run -d --network nofluffcars-network --name nofluffcars_db nofluffcars_db_image
 docker container exec -it nofluffcars_db bash
-mysql -uroot -proot < 202106131900_nfc_db_backup.sql;
+mysql -uroot -proot < 202107282100_nfc_db_backup.sql;
 ```
 ### Create backend container
 ```
@@ -35,4 +35,4 @@ docker exec -i nofluffcars-db  mysql -uroot -proot nofluffcars < data/2021061319
 1. move manually added database creation from sql dump file to
 an env param in mysql dockerfile
    
-2. database persistency in docker
+2. database persistence in docker
