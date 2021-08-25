@@ -3,34 +3,34 @@ package com.murbanowicz.nofluffcars.data.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "manufacturers")
-public class Manufacturer {
+@Table(name = "models")
+public class Model {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
-    private Long id;
+    private long id;
 
-    @Column(name = "IDcountry")
-    private Long idCountry;
+    @Column(name = "IDmanufacturer")
+    private Long idManufacturer;
 
     @Column(name = "name")
     private String name;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long ID) {
-        this.id = ID;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public Long getIdCountry() {
-        return idCountry;
+    public Long getIdManufacturer() {
+        return idManufacturer;
     }
 
-    public void setIdCountry(Long ID_country) {
-        this.idCountry = ID_country;
+    public void setIdManufacturer(Long idManufacturer) {
+        this.idManufacturer = idManufacturer;
     }
 
     public String getName() {

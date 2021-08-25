@@ -3,7 +3,7 @@ package com.murbanowicz.nofluffcars.data.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "country")
+@Table(name = "countries")
 public class Country {
 
     @Id

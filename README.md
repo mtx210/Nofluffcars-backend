@@ -13,7 +13,7 @@ docker network create nofluffcars-network
 docker image build -t nofluffcars_db_image .
 docker container run -d --network nofluffcars-network --name nofluffcars_db nofluffcars_db_image
 docker container exec -it nofluffcars_db bash
-mysql -uroot -proot < 202107282300_nfc_db_backup.sql;
+mysql -uroot -proot < 202108252300_nfc_db_backup.sql;
 ```
 ### Create backend container
 ```

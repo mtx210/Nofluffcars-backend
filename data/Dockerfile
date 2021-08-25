@@ -1,3 +1,3 @@
 FROM mysql
 ENV MYSQL_ROOT_PASSWORD=root
-COPY ./202107282300_nfc_db_backup.sql .
+COPY ./202108252300_nfc_db_backup.sql .

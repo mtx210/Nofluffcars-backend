@@ -1,17 +1,17 @@
 package com.murbanowicz.nofluffcars.service;
 
 import com.murbanowicz.nofluffcars.data.entity.Country;
-import com.murbanowicz.nofluffcars.data.repository.CountryRepository;
+import com.murbanowicz.nofluffcars.data.repository.CountriesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CountryService {
+public class CountriesService {
 
     @Autowired
-    private CountryRepository countryRepository;
+    private CountriesRepository countriesRepository;
 
     public Country getById(Long id){
-        return countryRepository.findById(id).orElse(new Country());
+        return countriesRepository.findById(id).orElse(new Country());
     }
 }

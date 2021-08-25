@@ -2,20 +2,20 @@ package com.murbanowicz.nofluffcars.dto;
 
 public class ManufacturerDto {
 
-    private String name;
+    private String manufacturer;
     private String country;
 
-    public ManufacturerDto(String name, String country) {
-        this.name = name;
+    public ManufacturerDto(String manufacturer, String country) {
+        this.manufacturer = manufacturer;
         this.country = country;
     }
 
-    public String getName() {
-        return name;
+    public String getManufacturer() {
+        return manufacturer;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
     }
 
     public String getCountry() {
