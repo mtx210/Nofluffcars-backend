@@ -2,6 +2,14 @@
 
 < description obviously >
 
+## Running with bat scripts
+```aidl
+cd data
+docker-deploy-db.bat
+cd ..
+docker-deploy-backend.bat
+```
+
 ## Running with Docker
 
 ### Create network for backend and database containers
