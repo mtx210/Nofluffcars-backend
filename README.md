@@ -1,35 +1,52 @@
-# Nofluffcars - backend & db
+<pre>
+ __    _           ___  _             ___   ___    _____
+|  \  | |         / _/ | |           / _/  / _/   / ___/     by Max U
+|   \ | |   ___  | |_  | |   _   _  | |_  | |_   | |       ___    ___  _____
+| |\ \  |  /   \ | _|  | |  | | | | | _|  | _|   | |      / _ \  |  / |  __/
+| | \   | | [] | | |   | |_ | |_| | | |   | |    | |____ | /_\ | | |  |__  |
+|_|  \__|  \___/ |_|    \__| \____| |_|   |_|     \____/ |_| |_| |_|  \____|
+</pre>
 
-< description obviously >
+# Nofluffcars - backend & database
+< description, maybe one day >
 
-## Running with bat scripts
-```aidl
+## 1. Running .jar in commandline (change param values if needed)
+```
+mvnw clean package
+cd target
+java -Ddbhost=localhost -Ddbport=3306 -Ddbname=nofluffcars_data -jar nofluffcars-0.0.1-SNAPSHOT.jar
+```
+
+## 2. Running with Docker
+### 2.1 Docker deployment speedrun xD 
+```
 cd data
 docker-deploy-db.bat
 cd ..
 docker-deploy-backend.bat
 ```
-
-## Running with Docker
-
-### Create network for backend and database containers
+### 2.2 Docker deployment in details (no speedrun xD)
+#### 2.2.1 Create network for backend and database containers
 ```
 docker network create nofluffcars-network
 ```
-### Create database container (data folder)
+#### 2.2.2 Create database container (data folder)
 ```
 docker image build -t nofluffcars_db_image .
 docker container run -d --network nofluffcars-network --name nofluffcars_db nofluffcars_db_image
 docker container exec -it nofluffcars_db bash
 mysql -uroot -proot < 202108252300_nfc_db_backup.sql;
 ```
-### Create backend container
+#### 2.2.3 Create backend container
 ```
+mvnw clean package
 docker image build -t nofluffcars_backend_image .
 docker container run -p 8081:8081 --network nofluffcars-network --name nofluffcars_backend nofluffcars_backend_image
 ```
 
-### Usefull commands
+
+
+## 4. Usefull commands
 ```
 mvnw clean package
 source 202106131900_nfc_db_backup.sql;
@@ -39,8 +56,8 @@ docker network rm <network>
 docker exec -i nofluffcars-db  mysql -uroot -proot nofluffcars < data/202106131900_nfc_db_backup.sql
 ```
 
-## Todo
-1. move manually added database creation from sql dump file to
+## 5. Todo
+- move manually added database creation from sql dump file to
 an env param in mysql dockerfile
    
-2. database persistence in docker
+- database persistence in docker

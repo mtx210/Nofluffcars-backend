@@ -1,6 +1,5 @@
 package com.murbanowicz.nofluffcars.controller;
 
-import com.murbanowicz.nofluffcars.data.entity.Generation;
 import com.murbanowicz.nofluffcars.dto.GenerationDto;
 import com.murbanowicz.nofluffcars.exception.ApiException;
 import com.murbanowicz.nofluffcars.service.GenerationsService;
