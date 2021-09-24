@@ -1,10 +1,9 @@
 package com.murbanowicz.nofluffcars.controller;
 
 import com.murbanowicz.nofluffcars.data.entity.Manufacturer;
-import com.murbanowicz.nofluffcars.dto.ManufacturerDto;
-import com.murbanowicz.nofluffcars.exception.ApiException;
+import com.murbanowicz.nofluffcars.dto.response.ManufacturerResponse;
+import com.murbanowicz.nofluffcars.exception.RestApiException;
 import com.murbanowicz.nofluffcars.service.ManufacturersService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,35 +15,45 @@ import java.util.List;
 @RequestMapping("/manufacturers")
 public class ManufacturersController {
 
-    @Autowired
-    private ManufacturersService manufacturersService;
+    private final ManufacturersService manufacturersService;
+
+    public ManufacturersController(ManufacturersService manufacturersService) {
+        this.manufacturersService = manufacturersService;
+    }
 
     @GetMapping()
-    public List<Manufacturer> getAll(){
-        return manufacturersService.getAll();
+    public ResponseEntity<List<Manufacturer>> getAll(){
+        try {
+            return new ResponseEntity<>(manufacturersService.getAll(), HttpStatus.OK);
+        } catch (RestApiException e) {
+            return new ResponseEntity<>(e.getHttpStatus());
+        }
     }
 
     @GetMapping("/id/{id}")
-    public ResponseEntity<ManufacturerDto> getById(@PathVariable Long id){
+    public ResponseEntity<ManufacturerResponse> getById(@PathVariable Long id){
         try {
             return new ResponseEntity<>(manufacturersService.getById(id), HttpStatus.OK);
-        } catch (ApiException e) {
+        } catch (RestApiException e) {
             return new ResponseEntity<>(e.getHttpStatus());
         }
     }
 
     @GetMapping("/name/{name}")
-    public ManufacturerDto getByName(@PathVariable String name){
-        return manufacturersService.getByName(name);
+    public ResponseEntity<ManufacturerResponse> getByName(@PathVariable String name){
+        try {
+            return new ResponseEntity<>(manufacturersService.getByName(name), HttpStatus.OK);
+        } catch (RestApiException e) {
+            return new ResponseEntity<>(e.getHttpStatus());
+        }
     }
 
     @GetMapping("/country/{countryId}")
-    public List<Manufacturer> getByCountry(@PathVariable Long countryId){
-        return manufacturersService.getByCountry(countryId);
-    }
-
-    @GetMapping("/kek/{id}")
-    public List<ManufacturerDto> kek(@PathVariable Long id){
-        return manufacturersService.kek(id);
+    public ResponseEntity<List<Manufacturer>> getByCountry(@PathVariable Long countryId){
+        try {
+            return new ResponseEntity<>(manufacturersService.getByCountry(countryId), HttpStatus.OK);
+        } catch (RestApiException e) {
+            return new ResponseEntity<>(e.getHttpStatus());
+        }
     }
 }

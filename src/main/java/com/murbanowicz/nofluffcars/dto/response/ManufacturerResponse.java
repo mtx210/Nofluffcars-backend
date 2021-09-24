@@ -1,11 +1,11 @@
-package com.murbanowicz.nofluffcars.dto;
+package com.murbanowicz.nofluffcars.dto.response;
 
-public class ManufacturerDto {
+public class ManufacturerResponse {
 
     private String manufacturer;
     private String country;
 
-    public ManufacturerDto(String manufacturer, String country) {
+    public ManufacturerResponse(String manufacturer, String country) {
         this.manufacturer = manufacturer;
         this.country = country;
     }

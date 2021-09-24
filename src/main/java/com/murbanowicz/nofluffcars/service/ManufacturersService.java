@@ -2,9 +2,8 @@ package com.murbanowicz.nofluffcars.service;
 
 import com.murbanowicz.nofluffcars.data.entity.Manufacturer;
 import com.murbanowicz.nofluffcars.data.repository.ManufacturersRepository;
-import com.murbanowicz.nofluffcars.dto.ManufacturerDto;
-import com.murbanowicz.nofluffcars.exception.ApiException;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.murbanowicz.nofluffcars.dto.response.ManufacturerResponse;
+import com.murbanowicz.nofluffcars.exception.RestApiException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -13,37 +12,61 @@ import java.util.List;
 @Service
 public class ManufacturersService {
 
-    @Autowired
-    private ManufacturersRepository manufacturersRepository;
+    private final ManufacturersRepository manufacturersRepository;
+    private final CountriesService countriesService;
 
-    @Autowired
-    private CountriesService countriesService;
-
-    public List<Manufacturer> getAll(){
-        return manufacturersRepository.findAll();
+    public ManufacturersService(ManufacturersRepository manufacturersRepository, CountriesService countriesService) {
+        this.manufacturersRepository = manufacturersRepository;
+        this.countriesService = countriesService;
     }
 
-    public ManufacturerDto getById(Long id) throws ApiException {
-        Manufacturer manufacturer = manufacturersRepository.findById(id).orElse(null);
-        if(manufacturer != null){
-            String countryName = countriesService.getById(manufacturer.getIdCountry()).getName();
-            return new ManufacturerDto(manufacturer.getName(), countryName);
-        } else {
-            throw new ApiException(HttpStatus.NOT_FOUND);
+    public List<Manufacturer> getAll() throws RestApiException {
+        List<Manufacturer> manufacturers = manufacturersRepository.findAll();
+        if(manufacturers.isEmpty()){
+            throw new RestApiException(HttpStatus.NO_CONTENT);
         }
+
+        return manufacturers;
     }
 
-    public ManufacturerDto getByName(String name){
-        Manufacturer manufacturer = manufacturersRepository.findByName(name).orElse(new Manufacturer());
+    public ManufacturerResponse getById(Long id) throws RestApiException {
+        if(id == null){
+            throw new RestApiException(HttpStatus.BAD_REQUEST);
+        }
+
+        Manufacturer manufacturer = manufacturersRepository.findById(id).orElse(null);
+        if(manufacturer == null){
+            throw new RestApiException(HttpStatus.NO_CONTENT);
+        }
+
         String countryName = countriesService.getById(manufacturer.getIdCountry()).getName();
-        return new ManufacturerDto(manufacturer.getName(), countryName);
+        return new ManufacturerResponse(manufacturer.getName(), countryName);
     }
 
-    public List<Manufacturer> getByCountry(Long countryId){
-        return manufacturersRepository.findByIdCountry(countryId);
+    public ManufacturerResponse getByName(String name) throws RestApiException {
+        if(name == null || name.isEmpty()){
+            throw new RestApiException(HttpStatus.BAD_REQUEST);
+        }
+
+        Manufacturer manufacturer = manufacturersRepository.findByName(name).orElse(null);
+        if(manufacturer == null){
+            throw new RestApiException(HttpStatus.NO_CONTENT);
+        }
+
+        String countryName = countriesService.getById(manufacturer.getIdCountry()).getName();
+        return new ManufacturerResponse(manufacturer.getName(), countryName);
     }
 
-    public List<ManufacturerDto> kek(Long id) {
-        return manufacturersRepository.kek(id);
+    public List<Manufacturer> getByCountry(Long countryId) throws RestApiException {
+        if(countryId == null){
+            throw new RestApiException(HttpStatus.BAD_REQUEST);
+        }
+
+        List<Manufacturer> manufacturers = manufacturersRepository.findByIdCountry(countryId);
+        if(manufacturers.isEmpty()){
+            throw new RestApiException(HttpStatus.NO_CONTENT);
+        }
+
+        return manufacturers;
     }
 }

@@ -2,11 +2,11 @@ package com.murbanowicz.nofluffcars.exception;
 
 import org.springframework.http.HttpStatus;
 
-public class ApiException extends Exception{
+public class RestApiException extends Exception{
 
     private final HttpStatus httpStatus;
 
-    public ApiException(HttpStatus httpStatus){
+    public RestApiException(HttpStatus httpStatus){
         super();
         this.httpStatus = httpStatus;
     }

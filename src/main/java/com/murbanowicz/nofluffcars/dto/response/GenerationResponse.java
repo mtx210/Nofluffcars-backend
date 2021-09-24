@@ -1,11 +1,11 @@
-package com.murbanowicz.nofluffcars.dto;
+package com.murbanowicz.nofluffcars.dto.response;
 
-public class GenerationDto {
+public class GenerationResponse {
 
     private long id;
     private String name;
 
-    public GenerationDto(long id, String name) {
+    public GenerationResponse(long id, String name) {
         this.id = id;
         this.name = name;
     }

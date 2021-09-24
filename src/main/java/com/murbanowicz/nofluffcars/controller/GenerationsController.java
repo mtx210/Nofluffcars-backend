@@ -1,9 +1,8 @@
 package com.murbanowicz.nofluffcars.controller;
 
-import com.murbanowicz.nofluffcars.dto.GenerationDto;
-import com.murbanowicz.nofluffcars.exception.ApiException;
+import com.murbanowicz.nofluffcars.dto.response.GenerationResponse;
+import com.murbanowicz.nofluffcars.exception.RestApiException;
 import com.murbanowicz.nofluffcars.service.GenerationsService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,14 +14,17 @@ import java.util.List;
 @RequestMapping("/generations")
 public class GenerationsController {
 
-    @Autowired
-    private GenerationsService generationsService;
+    private final GenerationsService generationsService;
 
-    @GetMapping("/bymodel/{modelId}")
-    public ResponseEntity<List<GenerationDto>> getByModelId(@PathVariable Long modelId) {
+    public GenerationsController(GenerationsService generationsService) {
+        this.generationsService = generationsService;
+    }
+
+    @GetMapping("/model/{modelId}")
+    public ResponseEntity<List<GenerationResponse>> getByModelId(@PathVariable Long modelId) {
         try {
             return new ResponseEntity<>(generationsService.getByModelId(modelId), HttpStatus.OK);
-        } catch (ApiException e) {
+        } catch (RestApiException e) {
             return new ResponseEntity<>(e.getHttpStatus());
         }
     }
