@@ -15,16 +15,7 @@ public class CountriesService {
         this.countriesRepository = countriesRepository;
     }
 
-    public Country getById(Long id) throws RestApiException {
-        if(id == null){
-            throw new RestApiException(HttpStatus.BAD_REQUEST);
-        }
-
-        Country country = countriesRepository.findById(id).orElse(null);
-        if(country == null){
-            throw new RestApiException(HttpStatus.NO_CONTENT);
-        }
-
-        return country;
+    public Country getById(Long id) {
+        return countriesRepository.findById(id).orElse(null);
     }
 }

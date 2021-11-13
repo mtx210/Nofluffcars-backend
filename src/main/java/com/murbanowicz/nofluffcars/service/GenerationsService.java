@@ -18,15 +18,6 @@ public class GenerationsService {
     }
 
     public List<GenerationResponse> getByModelId(Long modelId) throws RestApiException {
-        if(modelId == null){
-            throw new RestApiException(HttpStatus.BAD_REQUEST);
-        }
-
-        List<GenerationResponse> generations = generationsRepository.getGenerationsByModelId(modelId);
-        if(generations.isEmpty()){
-            throw new RestApiException(HttpStatus.NO_CONTENT);
-        }
-
-        return generations;
+        return generationsRepository.getGenerationsByModelId(modelId);
     }
 }

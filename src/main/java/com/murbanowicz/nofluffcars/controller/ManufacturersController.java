@@ -23,11 +23,7 @@ public class ManufacturersController {
 
     @GetMapping()
     public ResponseEntity<List<Manufacturer>> getAll(){
-        try {
-            return new ResponseEntity<>(manufacturersService.getAll(), HttpStatus.OK);
-        } catch (RestApiException e) {
-            return new ResponseEntity<>(e.getHttpStatus());
-        }
+        return new ResponseEntity<>(manufacturersService.getAll(), HttpStatus.OK);
     }
 
     @GetMapping("/id/{id}")

@@ -18,15 +18,6 @@ public class ModelsService {
     }
 
     public List<Model> getByManufacturerId(Long manufacturerId) throws RestApiException {
-        if(manufacturerId == null){
-            throw new RestApiException(HttpStatus.BAD_REQUEST);
-        }
-
-        List<Model> modelList = modelsRepository.findByIdManufacturer(manufacturerId);
-        if(modelList.isEmpty()){
-            throw new RestApiException(HttpStatus.NO_CONTENT);
-        }
-
-        return modelList;
+        return modelsRepository.findByIdManufacturer(manufacturerId);
     }
 }

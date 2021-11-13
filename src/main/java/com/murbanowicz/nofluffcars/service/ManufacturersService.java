@@ -20,23 +20,14 @@ public class ManufacturersService {
         this.countriesService = countriesService;
     }
 
-    public List<Manufacturer> getAll() throws RestApiException {
-        List<Manufacturer> manufacturers = manufacturersRepository.findAll();
-        if(manufacturers.isEmpty()){
-            throw new RestApiException(HttpStatus.NO_CONTENT);
-        }
-
-        return manufacturers;
+    public List<Manufacturer> getAll() {
+        return manufacturersRepository.findAll();
     }
 
     public ManufacturerResponse getById(Long id) throws RestApiException {
-        if(id == null){
-            throw new RestApiException(HttpStatus.BAD_REQUEST);
-        }
-
         Manufacturer manufacturer = manufacturersRepository.findById(id).orElse(null);
         if(manufacturer == null){
-            throw new RestApiException(HttpStatus.NO_CONTENT);
+            return new ManufacturerResponse();
         }
 
         String countryName = countriesService.getById(manufacturer.getIdCountry()).getName();
@@ -44,13 +35,13 @@ public class ManufacturersService {
     }
 
     public ManufacturerResponse getByName(String name) throws RestApiException {
-        if(name == null || name.isEmpty()){
+        if(name == null || name.trim().isEmpty()){
             throw new RestApiException(HttpStatus.BAD_REQUEST);
         }
 
         Manufacturer manufacturer = manufacturersRepository.findByName(name).orElse(null);
         if(manufacturer == null){
-            throw new RestApiException(HttpStatus.NO_CONTENT);
+            return new ManufacturerResponse();
         }
 
         String countryName = countriesService.getById(manufacturer.getIdCountry()).getName();
@@ -58,15 +49,6 @@ public class ManufacturersService {
     }
 
     public List<Manufacturer> getByCountry(Long countryId) throws RestApiException {
-        if(countryId == null){
-            throw new RestApiException(HttpStatus.BAD_REQUEST);
-        }
-
-        List<Manufacturer> manufacturers = manufacturersRepository.findByIdCountry(countryId);
-        if(manufacturers.isEmpty()){
-            throw new RestApiException(HttpStatus.NO_CONTENT);
-        }
-
-        return manufacturers;
+        return manufacturersRepository.findByIdCountry(countryId);
     }
 }
