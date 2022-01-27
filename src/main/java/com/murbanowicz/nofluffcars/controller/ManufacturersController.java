@@ -1,5 +1,6 @@
 package com.murbanowicz.nofluffcars.controller;
 
+import com.murbanowicz.nofluffcars.data.ManufacturersDao;
 import com.murbanowicz.nofluffcars.data.entity.Manufacturer;
 import com.murbanowicz.nofluffcars.dto.response.ManufacturerResponse;
 import com.murbanowicz.nofluffcars.exception.RestApiException;
@@ -22,7 +23,7 @@ public class ManufacturersController {
     }
 
     @GetMapping()
-    public ResponseEntity<List<Manufacturer>> getAll(){
+    public ResponseEntity<List<ManufacturersDao.ManufacturerPOJO>> getAll(){
         return new ResponseEntity<>(manufacturersService.getAll(), HttpStatus.OK);
     }
 

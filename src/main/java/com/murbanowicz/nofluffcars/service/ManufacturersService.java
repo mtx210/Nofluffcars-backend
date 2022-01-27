@@ -1,5 +1,6 @@
 package com.murbanowicz.nofluffcars.service;
 
+import com.murbanowicz.nofluffcars.data.ManufacturersDao;
 import com.murbanowicz.nofluffcars.data.entity.Manufacturer;
 import com.murbanowicz.nofluffcars.data.repository.ManufacturersRepository;
 import com.murbanowicz.nofluffcars.dto.response.ManufacturerResponse;
@@ -12,16 +13,18 @@ import java.util.List;
 @Service
 public class ManufacturersService {
 
+    private final ManufacturersDao manufacturersDao;
     private final ManufacturersRepository manufacturersRepository;
     private final CountriesService countriesService;
 
-    public ManufacturersService(ManufacturersRepository manufacturersRepository, CountriesService countriesService) {
+    public ManufacturersService(ManufacturersDao manufacturersDao, ManufacturersRepository manufacturersRepository, CountriesService countriesService) {
+        this.manufacturersDao = manufacturersDao;
         this.manufacturersRepository = manufacturersRepository;
         this.countriesService = countriesService;
     }
 
-    public List<Manufacturer> getAll() {
-        return manufacturersRepository.findAll();
+    public List<ManufacturersDao.ManufacturerPOJO> getAll() {
+        return manufacturersDao.findAll();
     }
 
     public ManufacturerResponse getById(Long id) throws RestApiException {
