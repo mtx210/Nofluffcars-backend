@@ -1,9 +1,8 @@
 package com.murbanowicz.nofluffcars.service;
 
-import com.murbanowicz.nofluffcars.data.repository.GenerationsRepository;
+import com.murbanowicz.nofluffcars.data.staticdata.repo.GenerationsRepository;
 import com.murbanowicz.nofluffcars.dto.response.GenerationResponse;
 import com.murbanowicz.nofluffcars.exception.RestApiException;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +17,6 @@ public class GenerationsService {
     }
 
     public List<GenerationResponse> getByModelId(Long modelId) throws RestApiException {
-        return generationsRepository.getGenerationsByModelId(modelId);
+        return generationsRepository.findByModelId(modelId);
     }
 }

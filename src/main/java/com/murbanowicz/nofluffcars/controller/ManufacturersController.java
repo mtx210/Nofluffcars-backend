@@ -1,6 +1,6 @@
 package com.murbanowicz.nofluffcars.controller;
 
-import com.murbanowicz.nofluffcars.data.entity.Manufacturer;
+import com.murbanowicz.nofluffcars.data.staticdata.entity.Manufacturer;
 import com.murbanowicz.nofluffcars.dto.response.ManufacturerResponse;
 import com.murbanowicz.nofluffcars.exception.RestApiException;
 import com.murbanowicz.nofluffcars.service.ManufacturersService;

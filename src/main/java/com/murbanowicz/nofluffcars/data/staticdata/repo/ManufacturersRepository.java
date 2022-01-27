@@ -1,6 +1,6 @@
-package com.murbanowicz.nofluffcars.data.repository;
+package com.murbanowicz.nofluffcars.data.staticdata.repo;
 
-import com.murbanowicz.nofluffcars.data.entity.Manufacturer;
+import com.murbanowicz.nofluffcars.data.staticdata.entity.Manufacturer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,7 +13,4 @@ public interface ManufacturersRepository extends JpaRepository<Manufacturer, Lon
     Optional<Manufacturer> findByName(String name);
 
     List<Manufacturer> findByIdCountry(Long IDcountry);
-
-    /*@Query("select new com.murbanowicz.nofluffcars.dto.response.ManufacturerDto(M.name, C.name) from Manufacturer M join Country C on M.idCountry = C.id where M.id = ?1")
-    List<ManufacturerDto> kek(Long id);*/
 }

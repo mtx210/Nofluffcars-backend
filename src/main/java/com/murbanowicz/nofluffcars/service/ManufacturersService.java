@@ -1,7 +1,7 @@
 package com.murbanowicz.nofluffcars.service;
 
-import com.murbanowicz.nofluffcars.data.entity.Manufacturer;
-import com.murbanowicz.nofluffcars.data.repository.ManufacturersRepository;
+import com.murbanowicz.nofluffcars.data.staticdata.entity.Manufacturer;
+import com.murbanowicz.nofluffcars.data.staticdata.repo.ManufacturersRepository;
 import com.murbanowicz.nofluffcars.dto.response.ManufacturerResponse;
 import com.murbanowicz.nofluffcars.exception.RestApiException;
 import org.springframework.http.HttpStatus;
