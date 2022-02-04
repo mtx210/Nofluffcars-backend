@@ -1,9 +1,7 @@
 package com.murbanowicz.nofluffcars.service;
 
-import com.murbanowicz.nofluffcars.data.entity.Country;
-import com.murbanowicz.nofluffcars.data.repository.CountriesRepository;
-import com.murbanowicz.nofluffcars.exception.RestApiException;
-import org.springframework.http.HttpStatus;
+import com.murbanowicz.nofluffcars.data.staticdata.entity.Country;
+import com.murbanowicz.nofluffcars.data.staticdata.repo.CountriesRepository;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -1,6 +1,6 @@
-package com.murbanowicz.nofluffcars.data.repository;
+package com.murbanowicz.nofluffcars.data.staticdata.repo;
 
-import com.murbanowicz.nofluffcars.data.entity.Model;
+import com.murbanowicz.nofluffcars.data.staticdata.entity.Model;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.murbanowicz.nofluffcars.data.entity;
+package com.murbanowicz.nofluffcars.data.staticdata.entity;
 
 import javax.persistence.*;
 
