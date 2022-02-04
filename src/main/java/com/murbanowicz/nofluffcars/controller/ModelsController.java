@@ -1,6 +1,6 @@
 package com.murbanowicz.nofluffcars.controller;
 
-import com.murbanowicz.nofluffcars.data.entity.Model;
+import com.murbanowicz.nofluffcars.data.staticdata.entity.Model;
 import com.murbanowicz.nofluffcars.service.ModelsService;
 import com.murbanowicz.nofluffcars.exception.RestApiException;
 import org.springframework.http.HttpStatus;

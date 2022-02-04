@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "142dc9d2-8e6b-40ba-85ff-789944d6e73a",
+		"name": "NofluffcarsAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Manufacturers",
+			"item": [
+				{
+					"name": "MANUFACTURERS_GET_ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/manufacturers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"manufacturers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MANUFACTURERS_GET_BY_ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/manufacturers/id/18",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"manufacturers",
+								"id",
+								"18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MANUFACTURERS_GET_BY_NAME",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/manufacturers/name/bmw",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"manufacturers",
+								"name",
+								"bmw"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MANUFACTURERS_GET_BY_COUNTRY",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/manufacturers/country/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"manufacturers",
+								"country",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Models",
+			"item": [
+				{
+					"name": "MODEL_GET_BY_MANUFACTURER_ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/models/manufacturer/13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"models",
+								"manufacturer",
+								"13"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Generations",
+			"item": [
+				{
+					"name": "MODEL_GET_BY_MANUFACTURER_ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/generations/model/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"generations",
+								"model",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

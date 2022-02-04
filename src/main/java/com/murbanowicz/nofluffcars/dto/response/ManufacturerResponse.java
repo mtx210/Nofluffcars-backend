@@ -5,6 +5,9 @@ public class ManufacturerResponse {
     private String manufacturer;
     private String country;
 
+    public ManufacturerResponse() {
+    }
+
     public ManufacturerResponse(String manufacturer, String country) {
         this.manufacturer = manufacturer;
         this.country = country;

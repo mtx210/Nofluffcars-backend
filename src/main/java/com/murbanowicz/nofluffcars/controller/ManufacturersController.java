@@ -1,6 +1,6 @@
 package com.murbanowicz.nofluffcars.controller;
 
-import com.murbanowicz.nofluffcars.data.entity.Manufacturer;
+import com.murbanowicz.nofluffcars.data.staticdata.entity.Manufacturer;
 import com.murbanowicz.nofluffcars.dto.response.ManufacturerResponse;
 import com.murbanowicz.nofluffcars.exception.RestApiException;
 import com.murbanowicz.nofluffcars.service.ManufacturersService;
@@ -23,11 +23,7 @@ public class ManufacturersController {
 
     @GetMapping()
     public ResponseEntity<List<Manufacturer>> getAll(){
-        try {
-            return new ResponseEntity<>(manufacturersService.getAll(), HttpStatus.OK);
-        } catch (RestApiException e) {
-            return new ResponseEntity<>(e.getHttpStatus());
-        }
+        return new ResponseEntity<>(manufacturersService.getAll(), HttpStatus.OK);
     }
 
     @GetMapping("/id/{id}")
