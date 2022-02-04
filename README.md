@@ -13,14 +13,14 @@
 ## 1. Running in IntelliJ IDE
 Dont forget to add these VM options to Run configuration
 ```
--Ddbhost=localhost -Ddbport=3306 -Ddbname=nofluffcars_data
+-Ddbhost=localhost -Ddbport=3306
 ```
 
-## 2. Building and running .jar in commandline (change param values if needed)
+## 2. Building and running .jar in terminal
 ```
 mvnw clean package
 cd target
-java -Ddbhost=localhost -Ddbport=3306 -Ddbname=nofluffcars_data -jar nofluffcars-0.0.1-SNAPSHOT.jar
+java -Ddbhost=localhost -Ddbport=3306 -jar nofluffcars-0.0.1-SNAPSHOT.jar
 ```
 
 ## 3. Running with Docker

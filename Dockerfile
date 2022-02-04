@@ -1,4 +1,4 @@
 FROM openjdk:8
 ADD target/*.jar app.jar
 EXPOSE 8081
-ENTRYPOINT ["java","-Ddbhost=nofluffcars_db","-Ddbport=3306","-Ddbname=nofluffcars_data?useTimezone=true&serverTimezone=UTC","-jar","/app.jar"]
+ENTRYPOINT ["java","-Ddbhost=nofluffcars_db","-Ddbport=3306","-jar","/app.jar"]
