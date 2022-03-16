@@ -2,23 +2,23 @@ package com.murbanowicz.nofluffcars.dto.response;
 
 public class ManufacturerResponse {
 
-    private String manufacturer;
+    private String name;
     private String country;
 
     public ManufacturerResponse() {
     }
 
-    public ManufacturerResponse(String manufacturer, String country) {
-        this.manufacturer = manufacturer;
+    public ManufacturerResponse(String name, String country) {
+        this.name = name;
         this.country = country;
     }
 
-    public String getManufacturer() {
-        return manufacturer;
+    public String getName() {
+        return name;
     }
 
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getCountry() {

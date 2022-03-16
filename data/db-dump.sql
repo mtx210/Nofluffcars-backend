@@ -1,6 +1,8 @@
+CREATE DATABASE  IF NOT EXISTS `nofluffcars_data` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `nofluffcars_data`;
 -- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: nofluffcars_service
+-- Host: 127.0.0.1    Database: nofluffcars_data
 -- ------------------------------------------------------
 -- Server version	8.0.25
 
@@ -16,86 +18,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `nofluffcars_service`
---
-
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `nofluffcars_service` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-
-USE `nofluffcars_service`;
-
---
--- Table structure for table `offers`
---
-
-DROP TABLE IF EXISTS `offers`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `offers` (
-  `ID` bigint NOT NULL AUTO_INCREMENT,
-  `car_manufacturer` varchar(20) NOT NULL,
-  `car_model` varchar(20) NOT NULL,
-  `car_generation` varchar(20) DEFAULT NULL,
-  `car_bodytype` varchar(20) DEFAULT NULL,
-  `car_mileage` bigint NOT NULL,
-  `car_prod_year` smallint NOT NULL,
-  `car_engine_type` varchar(20) NOT NULL,
-  `car_engine_fuel_type` varchar(20) NOT NULL,
-  `car_engine_displacement` smallint NOT NULL,
-  `car_engine_power` smallint NOT NULL,
-  `car_transmission_type` varchar(20) NOT NULL,
-  `car_drivetrain_type` varchar(20) NOT NULL,
-  `status_from_first_owner` tinyint(1) NOT NULL,
-  `status_is_accident_free` tinyint(1) NOT NULL,
-  `status_is_registered` tinyint(1) NOT NULL,
-  `status_is_damaged` tinyint(1) NOT NULL,
-  `status_is_rhd` tinyint(1) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `offers`
---
-
-LOCK TABLES `offers` WRITE;
-/*!40000 ALTER TABLE `offers` DISABLE KEYS */;
-/*!40000 ALTER TABLE `offers` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `users`
---
-
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users` (
-  `ID` bigint NOT NULL AUTO_INCREMENT,
-  `email` varchar(64) NOT NULL,
-  `username` varchar(32) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `users`
---
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'user@user.user','user');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Current Database: `nofluffcars_data`
---
-
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `nofluffcars_data` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-
-USE `nofluffcars_data`;
-
---
 -- Table structure for table `countries`
 --
 
@@ -103,9 +25,9 @@ DROP TABLE IF EXISTS `countries`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `countries` (
-  `ID` bigint NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) NOT NULL,
-  PRIMARY KEY (`ID`)
+                             `ID` bigint NOT NULL AUTO_INCREMENT,
+                             `name` varchar(20) NOT NULL,
+                             PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -120,77 +42,101 @@ INSERT INTO `countries` VALUES (1,'USA'),(2,'Great Britain'),(3,'Spain'),(4,'Fra
 UNLOCK TABLES;
 
 --
--- Table structure for table `drivetrain_types`
+-- Table structure for table `enum_drivetrain_types`
 --
 
-DROP TABLE IF EXISTS `drivetrain_types`;
+DROP TABLE IF EXISTS `enum_drivetrain_types`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `drivetrain_types` (
-  `ID` bigint NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) NOT NULL,
-  PRIMARY KEY (`ID`)
+CREATE TABLE `enum_drivetrain_types` (
+                                         `ID` bigint NOT NULL AUTO_INCREMENT,
+                                         `name` varchar(20) NOT NULL,
+                                         PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `drivetrain_types`
+-- Dumping data for table `enum_drivetrain_types`
 --
 
-LOCK TABLES `drivetrain_types` WRITE;
-/*!40000 ALTER TABLE `drivetrain_types` DISABLE KEYS */;
-INSERT INTO `drivetrain_types` VALUES (1,'FWD'),(2,'RWD'),(3,'AWD');
-/*!40000 ALTER TABLE `drivetrain_types` ENABLE KEYS */;
+LOCK TABLES `enum_drivetrain_types` WRITE;
+/*!40000 ALTER TABLE `enum_drivetrain_types` DISABLE KEYS */;
+INSERT INTO `enum_drivetrain_types` VALUES (1,'FWD'),(2,'RWD'),(3,'AWD');
+/*!40000 ALTER TABLE `enum_drivetrain_types` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `engine_fuel_type`
+-- Table structure for table `enum_engine_fuel_types`
 --
 
-DROP TABLE IF EXISTS `engine_fuel_type`;
+DROP TABLE IF EXISTS `enum_engine_fuel_types`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `engine_fuel_type` (
-  `ID` bigint NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) NOT NULL,
-  PRIMARY KEY (`ID`)
+CREATE TABLE `enum_engine_fuel_types` (
+                                          `ID` bigint NOT NULL AUTO_INCREMENT,
+                                          `name` varchar(20) NOT NULL,
+                                          PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `engine_fuel_type`
+-- Dumping data for table `enum_engine_fuel_types`
 --
 
-LOCK TABLES `engine_fuel_type` WRITE;
-/*!40000 ALTER TABLE `engine_fuel_type` DISABLE KEYS */;
-INSERT INTO `engine_fuel_type` VALUES (1,'Petrol'),(2,'Diesel'),(3,'Petrol+LPG');
-/*!40000 ALTER TABLE `engine_fuel_type` ENABLE KEYS */;
+LOCK TABLES `enum_engine_fuel_types` WRITE;
+/*!40000 ALTER TABLE `enum_engine_fuel_types` DISABLE KEYS */;
+INSERT INTO `enum_engine_fuel_types` VALUES (1,'Petrol'),(2,'Diesel'),(3,'Petrol+LPG');
+/*!40000 ALTER TABLE `enum_engine_fuel_types` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `engine_types`
+-- Table structure for table `enum_engine_types`
 --
 
-DROP TABLE IF EXISTS `engine_types`;
+DROP TABLE IF EXISTS `enum_engine_types`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `engine_types` (
-  `ID` bigint NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) NOT NULL,
-  `has_pistons` tinyint(1) NOT NULL,
-  `has_rotors` tinyint(1) NOT NULL,
-  PRIMARY KEY (`ID`)
+CREATE TABLE `enum_engine_types` (
+                                     `ID` bigint NOT NULL AUTO_INCREMENT,
+                                     `name` varchar(20) NOT NULL,
+                                     `has_pistons` tinyint(1) NOT NULL,
+                                     `has_rotors` tinyint(1) NOT NULL,
+                                     PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `engine_types`
+-- Dumping data for table `enum_engine_types`
 --
 
-LOCK TABLES `engine_types` WRITE;
-/*!40000 ALTER TABLE `engine_types` DISABLE KEYS */;
-INSERT INTO `engine_types` VALUES (1,'Inline 3',1,0),(2,'Inline 4',1,0),(3,'Inline 5',1,0),(4,'Inline 6',1,0),(5,'V4',1,0),(6,'V6',1,0),(7,'V8',1,0),(8,'V10',1,0),(9,'V12',1,0),(10,'W8',1,0),(11,'W12',1,0),(12,'VR5',1,0),(13,'VR6',1,0),(14,'W16',1,0),(15,'Rotary 3',1,0),(16,'Rotary 4',0,1),(17,'Electric',0,0),(18,'Hybrid',1,0);
-/*!40000 ALTER TABLE `engine_types` ENABLE KEYS */;
+LOCK TABLES `enum_engine_types` WRITE;
+/*!40000 ALTER TABLE `enum_engine_types` DISABLE KEYS */;
+INSERT INTO `enum_engine_types` VALUES (1,'Inline 3',1,0),(2,'Inline 4',1,0),(3,'Inline 5',1,0),(4,'Inline 6',1,0),(5,'V4',1,0),(6,'V6',1,0),(7,'V8',1,0),(8,'V10',1,0),(9,'V12',1,0),(10,'W8',1,0),(11,'W12',1,0),(12,'VR5',1,0),(13,'VR6',1,0),(14,'W16',1,0),(15,'Rotary 3',1,0),(16,'Rotary 4',0,1),(17,'Electric',0,0),(18,'Hybrid',1,0);
+/*!40000 ALTER TABLE `enum_engine_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `enum_transmission_types`
+--
+
+DROP TABLE IF EXISTS `enum_transmission_types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `enum_transmission_types` (
+                                           `ID` bigint NOT NULL AUTO_INCREMENT,
+                                           `name` varchar(20) NOT NULL,
+                                           PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `enum_transmission_types`
+--
+
+LOCK TABLES `enum_transmission_types` WRITE;
+/*!40000 ALTER TABLE `enum_transmission_types` DISABLE KEYS */;
+INSERT INTO `enum_transmission_types` VALUES (1,'Manual'),(2,'Automatic');
+/*!40000 ALTER TABLE `enum_transmission_types` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -201,22 +147,23 @@ DROP TABLE IF EXISTS `generations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `generations` (
-  `ID` bigint NOT NULL AUTO_INCREMENT,
-  `IDmodel` bigint NOT NULL,
-  `name` varchar(20) NOT NULL,
-  `prod_year_start` smallint NOT NULL,
-  `prod_year_end` smallint NOT NULL,
-  `bt_hatchback` tinyint(1) NOT NULL DEFAULT '0',
-  `bt_sedan` tinyint(1) NOT NULL DEFAULT '0',
-  `bt_wagon` tinyint(1) NOT NULL DEFAULT '0',
-  `bt_coupe` tinyint(1) NOT NULL DEFAULT '0',
-  `bt_convertible` tinyint(1) NOT NULL DEFAULT '0',
-  `bt_suv` tinyint(1) NOT NULL DEFAULT '0',
-  `bt_van` tinyint(1) NOT NULL DEFAULT '0',
-  `bt_other` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`ID`),
-  KEY `model_fk` (`IDmodel`),
-  CONSTRAINT `model_fk` FOREIGN KEY (`IDmodel`) REFERENCES `models` (`ID`)
+                               `ID` bigint NOT NULL AUTO_INCREMENT,
+                               `IDmodel` bigint NOT NULL,
+                               `name` varchar(20) NOT NULL,
+                               `prod_year_start` smallint NOT NULL,
+                               `prod_year_end` smallint NOT NULL,
+                               `bt_hatchback` tinyint(1) NOT NULL DEFAULT '0',
+                               `bt_sedan` tinyint(1) NOT NULL DEFAULT '0',
+                               `bt_wagon` tinyint(1) NOT NULL DEFAULT '0',
+                               `bt_coupe` tinyint(1) NOT NULL DEFAULT '0',
+                               `bt_convertible` tinyint(1) NOT NULL DEFAULT '0',
+                               `bt_suv` tinyint(1) NOT NULL DEFAULT '0',
+                               `bt_van` tinyint(1) NOT NULL DEFAULT '0',
+                               `bt_other` tinyint(1) NOT NULL DEFAULT '0',
+                               PRIMARY KEY (`ID`),
+                               UNIQUE KEY `generations_ID_uindex` (`ID`),
+                               KEY `model_fk` (`IDmodel`),
+                               CONSTRAINT `model_fk` FOREIGN KEY (`IDmodel`) REFERENCES `models` (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -238,12 +185,14 @@ DROP TABLE IF EXISTS `manufacturers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `manufacturers` (
-  `ID` bigint NOT NULL AUTO_INCREMENT,
-  `IDcountry` bigint NOT NULL,
-  `name` varchar(20) NOT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `manufacturer_country_ID_fk` (`IDcountry`),
-  CONSTRAINT `manufacturer_country_ID_fk` FOREIGN KEY (`IDcountry`) REFERENCES `countries` (`ID`)
+                                 `ID` bigint NOT NULL AUTO_INCREMENT,
+                                 `IDcountry` bigint NOT NULL,
+                                 `name` varchar(20) NOT NULL,
+                                 PRIMARY KEY (`ID`),
+                                 UNIQUE KEY `manufacturers_ID_uindex` (`ID`),
+                                 UNIQUE KEY `manufacturers_name_uindex` (`name`),
+                                 KEY `manufacturer_country_ID_fk` (`IDcountry`),
+                                 CONSTRAINT `manufacturer_country_ID_fk` FOREIGN KEY (`IDcountry`) REFERENCES `countries` (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -265,12 +214,13 @@ DROP TABLE IF EXISTS `models`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `models` (
-  `ID` bigint NOT NULL AUTO_INCREMENT,
-  `IDmanufacturer` bigint NOT NULL,
-  `name` varchar(20) NOT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `manufacturer_fk` (`IDmanufacturer`),
-  CONSTRAINT `manufacturer_fk` FOREIGN KEY (`IDmanufacturer`) REFERENCES `manufacturers` (`ID`)
+                          `ID` bigint NOT NULL AUTO_INCREMENT,
+                          `IDmanufacturer` bigint NOT NULL,
+                          `name` varchar(20) NOT NULL,
+                          PRIMARY KEY (`ID`),
+                          UNIQUE KEY `models_ID_uindex` (`ID`),
+                          KEY `manufacturer_fk` (`IDmanufacturer`),
+                          CONSTRAINT `manufacturer_fk` FOREIGN KEY (`IDmanufacturer`) REFERENCES `manufacturers` (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -285,27 +235,65 @@ INSERT INTO `models` VALUES (1,13,'3 series'),(2,13,'5 series'),(3,13,'7 series'
 UNLOCK TABLES;
 
 --
--- Table structure for table `transmission_types`
+-- Table structure for table `offers`
 --
 
-DROP TABLE IF EXISTS `transmission_types`;
+DROP TABLE IF EXISTS `offers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `transmission_types` (
-  `ID` bigint NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `offers` (
+                          `ID` bigint DEFAULT NULL,
+                          `car_manufacturer` varchar(20) DEFAULT NULL,
+                          `car_model` varchar(20) DEFAULT NULL,
+                          `car_generation` varchar(20) DEFAULT NULL,
+                          `car_bodytype` varchar(20) DEFAULT NULL,
+                          `car_mileage` bigint DEFAULT NULL,
+                          `car_prod_year` smallint DEFAULT NULL,
+                          `car_engine_type` varchar(20) DEFAULT NULL,
+                          `car_engine_fuel_type` varchar(20) DEFAULT NULL,
+                          `car_engine_displacement` smallint DEFAULT NULL,
+                          `car_engine_power` smallint DEFAULT NULL,
+                          `car_transmission_type` varchar(20) DEFAULT NULL,
+                          `car_drivetrain_type` varchar(20) DEFAULT NULL,
+                          `status_from_first_owner` tinyint DEFAULT NULL,
+                          `status_is_accident_free` tinyint DEFAULT NULL,
+                          `status_is_registered` tinyint DEFAULT NULL,
+                          `status_is_damaged` tinyint DEFAULT NULL,
+                          `status_is_rhd` tinyint DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `transmission_types`
+-- Dumping data for table `offers`
 --
 
-LOCK TABLES `transmission_types` WRITE;
-/*!40000 ALTER TABLE `transmission_types` DISABLE KEYS */;
-INSERT INTO `transmission_types` VALUES (1,'Manual'),(2,'Automatic');
-/*!40000 ALTER TABLE `transmission_types` ENABLE KEYS */;
+LOCK TABLES `offers` WRITE;
+/*!40000 ALTER TABLE `offers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `offers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+                         `ID` bigint DEFAULT NULL,
+                         `email` varchar(64) DEFAULT NULL,
+                         `username` varchar(32) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'user@user.user','user');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -317,4 +305,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-04 21:24:51
+-- Dump completed on 2022-03-16 21:20:43

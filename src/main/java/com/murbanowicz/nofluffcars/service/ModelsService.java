@@ -1,8 +1,7 @@
 package com.murbanowicz.nofluffcars.service;
 
-import com.murbanowicz.nofluffcars.data.staticdata.entity.Model;
-import com.murbanowicz.nofluffcars.data.staticdata.repo.ModelsRepository;
-import com.murbanowicz.nofluffcars.exception.RestApiException;
+import com.murbanowicz.nofluffcars.data.entity.Model;
+import com.murbanowicz.nofluffcars.data.repo.ModelsRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +15,7 @@ public class ModelsService {
         this.modelsRepository = modelsRepository;
     }
 
-    public List<Model> getByManufacturerId(Long manufacturerId) throws RestApiException {
+    public List<Model> getByManufacturerId(Long manufacturerId) {
         return modelsRepository.findByIdManufacturer(manufacturerId);
     }
 }

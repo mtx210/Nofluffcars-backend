@@ -1,11 +1,10 @@
-package com.murbanowicz.nofluffcars.data.staticdata.repo;
+package com.murbanowicz.nofluffcars.data.repo;
 
-import com.murbanowicz.nofluffcars.data.staticdata.entity.Generation;
 import com.murbanowicz.nofluffcars.dto.response.GenerationResponse;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import com.murbanowicz.nofluffcars.data.entity.Generation;
 
 import java.util.List;
 

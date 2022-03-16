@@ -75,7 +75,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/manufacturers/country/4",
+							"raw": "http://localhost:8081/manufacturers/countryId/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -83,7 +83,7 @@
 							"port": "8081",
 							"path": [
 								"manufacturers",
-								"country",
+								"countryId",
 								"4"
 							]
 						}
@@ -122,7 +122,7 @@
 			"name": "Generations",
 			"item": [
 				{
-					"name": "MODEL_GET_BY_MANUFACTURER_ID",
+					"name": "GENERATIONS_GET_BY_MODEL_ID",
 					"request": {
 						"method": "GET",
 						"header": [],

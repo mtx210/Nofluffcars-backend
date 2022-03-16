@@ -8,15 +8,25 @@
 </pre>
 
 # Nofluffcars - backend & database
-< description, maybe one day >
+One day, Nofluffcars will be a light and fully-functioning car trading service for
+car enthusiasts from Poland. Something like otomoto but with few things done better 
+(in my opinion) like better price and financing filtering options as well as more 
+detailed listing descriptions.
+
+For now, it only serves as a free-time learning project, I don't spent much time on it,
+because I have a lot of hobbies other than programming, and I get a fair share of 
+programming at work which I, believe it or not, actually enjoy.
+
+I developed this using MySQL database locally.
 
 ## 1. Running in IntelliJ IDE
-Dont forget to add these VM options to Run configuration
+Don't forget to add these VM options to Run configuration, modify values if needed
 ```
 -Ddbhost=localhost -Ddbport=3306
 ```
 
 ## 2. Building and running .jar in terminal
+Of course also modify values if needed
 ```
 mvnw clean package
 cd target
@@ -62,3 +72,4 @@ docker exec -i nofluffcars-db  mysql -uroot -proot nofluffcars < data/2021061319
 ```
 
 ## 5. Todo
+Develop the project I guess...

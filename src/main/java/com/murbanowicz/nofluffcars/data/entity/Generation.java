@@ -1,4 +1,4 @@
-package com.murbanowicz.nofluffcars.data.staticdata.entity;
+package com.murbanowicz.nofluffcars.data.entity;
 
 import javax.persistence.*;
 
@@ -47,4 +47,23 @@ public class Generation {
     @Column(name = "bt_other")
     private boolean btOther;
 
+    public Generation() {
+    }
+
+    public Generation(long id, long idModel, String name, int prodYearStart, int prodYearEnd, boolean btHatchback, boolean btSedan,
+                      boolean btWagon, boolean btCoupe, boolean btConvertible, boolean btSuv, boolean btVan, boolean btOther) {
+        this.id = id;
+        this.idModel = idModel;
+        this.name = name;
+        this.prodYearStart = prodYearStart;
+        this.prodYearEnd = prodYearEnd;
+        this.btHatchback = btHatchback;
+        this.btSedan = btSedan;
+        this.btWagon = btWagon;
+        this.btCoupe = btCoupe;
+        this.btConvertible = btConvertible;
+        this.btSuv = btSuv;
+        this.btVan = btVan;
+        this.btOther = btOther;
+    }
 }

@@ -1,9 +1,9 @@
-package com.murbanowicz.nofluffcars.data.staticdata.entity;
+package com.murbanowicz.nofluffcars.data.entity;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "manufacturers", schema = "nofluffcars_data")
+@Table(name = "manufacturers")
 public class Manufacturer {
 
     @Id
@@ -16,6 +16,15 @@ public class Manufacturer {
 
     @Column(name = "name")
     private String name;
+
+    public Manufacturer() {
+    }
+
+    public Manufacturer(Long id, Long idCountry, String name) {
+        this.id = id;
+        this.idCountry = idCountry;
+        this.name = name;
+    }
 
     public Long getId() {
         return id;

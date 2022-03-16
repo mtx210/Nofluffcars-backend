@@ -1,4 +1,4 @@
-package com.murbanowicz.nofluffcars.data.staticdata.entity;
+package com.murbanowicz.nofluffcars.data.entity;
 
 import javax.persistence.*;
 
@@ -13,6 +13,14 @@ public class Country {
 
     @Column(name = "name")
     private String name;
+
+    public Country() {
+    }
+
+    public Country(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public Long getId() {
         return id;
