@@ -19,6 +19,9 @@ programming at work which I, believe it or not, actually enjoy.
 
 I developed this using MySQL database locally.
 
+In /data/ folder there is a db-dump.sql file to restore local MySQL database, I also
+included a Postman collection backup for API testing.
+
 ## 1. Running in IntelliJ IDE
 Don't forget to add these VM options to Run configuration, modify values if needed
 ```
