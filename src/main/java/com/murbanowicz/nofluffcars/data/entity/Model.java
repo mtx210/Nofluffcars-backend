@@ -1,9 +1,14 @@
 package com.murbanowicz.nofluffcars.data.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "models")
+@Getter
+@Setter
 public class Model {
 
     @Id
@@ -16,28 +21,4 @@ public class Model {
 
     @Column(name = "name")
     private String name;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public Long getIdManufacturer() {
-        return idManufacturer;
-    }
-
-    public void setIdManufacturer(Long idManufacturer) {
-        this.idManufacturer = idManufacturer;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }
