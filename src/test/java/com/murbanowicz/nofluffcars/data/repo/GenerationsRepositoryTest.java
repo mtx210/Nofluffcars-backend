@@ -1,7 +1,7 @@
 package com.murbanowicz.nofluffcars.data.repo;
 
 import com.murbanowicz.nofluffcars.data.entity.Generation;
-import com.murbanowicz.nofluffcars.dto.response.GenerationResponse;
+import com.murbanowicz.nofluffcars.api.dto.response.GenerationResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

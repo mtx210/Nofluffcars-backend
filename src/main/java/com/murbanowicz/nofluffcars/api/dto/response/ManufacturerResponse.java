@@ -1,4 +1,4 @@
-package com.murbanowicz.nofluffcars.dto.response;
+package com.murbanowicz.nofluffcars.api.dto.response;
 
 import lombok.*;
 

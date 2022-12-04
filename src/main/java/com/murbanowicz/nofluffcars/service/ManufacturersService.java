@@ -2,19 +2,17 @@ package com.murbanowicz.nofluffcars.service;
 
 import com.murbanowicz.nofluffcars.data.entity.Manufacturer;
 import com.murbanowicz.nofluffcars.data.repo.ManufacturersRepository;
-import com.murbanowicz.nofluffcars.dto.response.ManufacturerResponse;
+import com.murbanowicz.nofluffcars.api.dto.response.ManufacturerResponse;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class ManufacturersService {
 
     private final ManufacturersRepository manufacturersRepository;
-
-    public ManufacturersService(ManufacturersRepository manufacturersRepository) {
-        this.manufacturersRepository = manufacturersRepository;
-    }
 
     public List<Manufacturer> getAll() {
         return manufacturersRepository.findAll();
